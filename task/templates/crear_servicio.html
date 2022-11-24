@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<h1>Crear servicio</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button>Guardar</button>
+</form>
+
+{% endblock %}

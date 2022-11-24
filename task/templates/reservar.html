@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+
+<br>
+<br>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <form action="/iniciarSesion/" method="POST" class="card card-body ">
+                
+                <h1 class="text-center">Reservar</h1> 
+                {{error}}
+                {% csrf_token %}
+
+                {{form.as_table}}
+                
+                
+                
+                
+              <!--
+                        <div class="mb-3">
+                            <label for="servicio">Servicio:</label>
+                            <input type="text" name="servicio" id="servicio" class="form-control" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="vehiculo">Vehículo:</label>
+                            <input type="text" name="vehiculo" id="vehiculo" class="form-control" placeholder="" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="username">Usuario:</label>
+                            <input type="text" name="username" id="username" class="form-control" placeholder="" >
+                        </div>
+                       
+                        <div class="mb-3">
+                            <label for="reserva">Día Reserva:</label>
+                            <input type="date" name="reserva" id="reserva" class="form-control" min="2022-11-11" max="2023-02-28">
+                        </div>
+                        <div class="mb-3">
+                            <label for="hora">Hora Reserva:</label>
+                            <input type="time" name="hora" id="hora" class="form-control" >
+                        </div>
+                        -->
+                      
+                        <button class="btn btn-primary">RESERVAR</button>
+            </form>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

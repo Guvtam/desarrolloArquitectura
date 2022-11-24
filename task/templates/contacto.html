@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% load static %}
+<div class="text-center">
+<h1>Trae tu Vehículo</h1>
+
+
+<p class="text-center">
+    <p>Registrate si aún no tienes una cuenta y Reserva tu hora en Taller ServiExpress</p>
+</p>
+{% if user.is_authenticated %}
+<div >
+    <div class="row ">
+        <div >
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'reservar' %}" role="button">Hacer Reserva</a>
+    </p>
+    {% else %}
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'registrarse' %}" role="button">Registrarse</a>
+    
+        <a class="btn btn-primary btn-lg" href="{% url 'iniciarSesion' %}" role="button">Ingresar</a>
+    </p>
+</div>
+</div>
+</div>
+{% endif %}
+
+
+<div class="container">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="#">
+                <img src="{% static 'task/img/auto-mechanic-working-in-garage-repair-service (1).jpg'%}" class="d-block w-100" alt="..."></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>¡El Mejor Servicio para ti!</h1>
+                    
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                <img src="{% static 'task/img/muscular-car-service-worker-repairing-vehicle.jpg'%}" class="img-fluid" alt="..."></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>¡Tu Confianza es lo Primero!</h1>
+                    
+                </div>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                <img src="{% static 'task/img/taller-770x489.jpeg'%}" class="d-block w-100" alt="..."></a>
+                <div class="carousel-caption d-none d-md-block">
+                    <h1>¡Trae tu Vehiculo!</h1>
+                    <h3>Todos los Servicios que Necesites</h3>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
+
+</div>
+
+<br>
+<br>
+
+{% if user.is_authenticated %}
+<div >
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'reservar' %}" role="button">Hacer Reserva</a>
+    </p>
+    {% else %}
+    <p class="text-center">
+        <a class="btn btn-primary btn-lg" href="{% url 'registrarse' %}" role="button">Registrarse</a>
+    </p>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+
+<h1>Lista Reservas</h1>
+
+<ul>
+    {% for reserva in reservas %}
+
+    <li>{{reserva.servicio}}</li>
+    <p>{{reserva.fecha}}</p>
+    <p>{{reserva.user.username}}</p>
+    <p>{{reserva.vehiculo}}</p>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}
