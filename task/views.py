@@ -42,6 +42,23 @@ def registrarse(request):
             'error': 'La contraseña no coincide'
         })
 
+
+def iniciarSesion(request):
+    if request.method == 'GET':
+        return render(request,'login.html',{
+            'form' : AuthenticationForm
+        })
+    else:
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request,'login.html',{
+                'form' : AuthenticationForm,
+                'error' : 'Usuario o Constraseña Incorrectos'
+            })
+        else:
+            login(request, user)
+            return render(request,'contacto.html')
+
 @login_required
 def reservar(request):
     if request.method == 'GET':
@@ -61,23 +78,6 @@ def reservar(request):
             'form' : ReservaForm,
             'error': 'Ingresa un valor válido'
         })
-
-
-def iniciarSesion(request):
-    if request.method == 'GET':
-        return render(request,'login.html',{
-            'form' : AuthenticationForm
-        })
-    else:
-        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None:
-            return render(request,'login.html',{
-                'form' : AuthenticationForm,
-                'error' : 'Usuario o Constraseña Incorrectos'
-            })
-        else:
-            login(request, user)
-            return render(request,'contacto.html')
 
 @login_required    
 def cerrarSesion(request):

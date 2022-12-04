@@ -7,4 +7,5 @@ from .models import Servicio, Reserva, Vehiculo
 admin.site.register(Servicio)
 admin.site.register(Reserva)
 admin.site.register(Vehiculo)
+#admin.site.register()
 

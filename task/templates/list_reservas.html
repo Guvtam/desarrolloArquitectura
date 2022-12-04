@@ -3,17 +3,28 @@
 {% block content%}
 {% load static %}
 
-<h1>Lista Reservas</h1>
+<h1 style="text-align: center;">Lista Reservas</h1>
+{% for reserva in reservas %}
+<div class="container-md">
+    <div class="row">
+<div class="card" >
+    <div class="card-body">
+      <h5 class="card-title"><strong>SERVICIO RESERVADO:</strong>&nbsp;{{reserva.servicio}}</h5>
+      <p>{{reserva.fecha}}</p>
+      <p class="card-text"><strong>USUARIO/CLIENTE:</strong> {{reserva.user.username}}</p>
+      <p class="card-text"><strong>VEHÍCULO: </strong><br><strong>MARCA: </strong>{{reserva.vehiculo}}&nbsp;-&nbsp;<strong>MODELO: </strong>{{reserva.vehiculo.modelo}} &nbsp;-&nbsp;<strong>AÑO: </strong>{{reserva.vehiculo.anno}}</p>
+      
+      <p class="card-text"><strong>DESCRIPCIÓN:</strong><br> {{reserva.descripcion}}</p>
+      
+      <a href="#" class="btn btn-primary">Detalle</a>
+    </div>
+  </div>
+</div>
 
-<ul>
-    {% for reserva in reservas %}
-
-    <li>{{reserva.servicio}}</li>
-    <p>{{reserva.fecha}}</p>
-    <p>{{reserva.user.username}}</p>
-    <p>{{reserva.vehiculo}}</p>
+</div>
+<br>
 {% endfor %}
-</ul>
+
 
 
 

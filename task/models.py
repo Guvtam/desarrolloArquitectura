@@ -30,10 +30,11 @@ class Reserva(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     vehiculo = models.ForeignKey(Vehiculo, on_delete=models.CASCADE)
     reserva = models.DateField(auto_now_add=False, auto_now=False)
-    hora = models.TimeField(auto_now_add=False, auto_now=False,blank=True)
+    hora = models.TimeField(null=True)
+    descripcion = models.TextField(blank=True)
 
     def __str__(self):
-        return self.user.username 
+        return self.descripcion
     
     
      
