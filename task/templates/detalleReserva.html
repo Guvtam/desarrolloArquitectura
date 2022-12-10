@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<h1 class="text-center">Detalle Reserva</h1>
+
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <form method="POST" class="card card-body ">
+                {% csrf_token %}
+                {{form.as_p}}
+            
+                <input name="" id="editar" class="btn btn-primary" type="submit" value="EDITAR">
+            </form>
+
+            <form action="{% url 'reservaCompletada' reserva.id %}" method="POST" class="card card-body ">
+                {% csrf_token %}
+                <input name="" id="atendido" class="btn btn-success" type="submit" value="ATENDIDO">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

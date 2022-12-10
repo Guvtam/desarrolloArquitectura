@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+{% load static %}
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <form action="/boletas/" method="POST" class="card card-body ">
+                <h1 class="text-center">Crear Boleta</h1>
+                {% csrf_token %}
+                {{form.as_p}}
+            
+                <input name="" id="agregar" class="btn btn-primary" type="submit" value="AGREGAR">
+            </form>
+
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

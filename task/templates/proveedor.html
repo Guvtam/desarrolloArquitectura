@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+<h1 class="text-center">Lista Proveedores</h1>
+
+
+<div class="card">
+    
+    <div class="card-body">
+        <h4 class="card-title">Proveedores</h4>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>RUBRO</th>
+                    <th>DIRECCIÓN</th>
+                    <th>CONTACTO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for proveedor in proveedor %}
+                <tr>
+                    <td>{{ proveedor.id }}</td>
+                    <td>
+                        
+                        {{ proveedor.nombre}}
+                    </td>
+                    <td>{{ proveedor.rubro }}</td>
+                    <td>{{ proveedor.direccion}}</td>
+                    <td>{{ proveedor.telefono }}</td>
+                    <td>
+                        <a href="{% url 'detalleProveedor' proveedor.id %}" class="btn btn-primary">Detalle</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

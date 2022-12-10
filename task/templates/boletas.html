@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <h1 class="text-center">Lista Boletas</h1>
+
+            <div class="card">
+    
+                <div class="card-body">
+                    <h4 class="card-title">Boletas/Facturas</h4>
+                    
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>FECHA</th>
+                                <th>DESCRIPCIÓN</th>
+                                <th>TOTAL</th>
+                                <th>FECHA REGISTRO</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for boleta in boleta %}
+                            <tr>
+                                <td>{{ boleta.id }}</td>
+                                <td>
+                                    
+                                    {{ boleta.fecha}}
+                                </td>
+                                <td>{{ boleta.descripcion }}</td>
+                                <td>{{ boleta.total}}</td>
+                                <td>{{ boleta.fechaRealizado}}</td>
+                                <td>
+                                    <a href="{% url 'detalleBoleta' boleta.id %}" class="btn btn-primary">Detalle</a>
+                                </td>
+                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                </div>
+                
+            </div>
+
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

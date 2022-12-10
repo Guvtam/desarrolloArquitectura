@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+
+<br>
+<br>
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <form action="/reservar/crear/" method="POST" class="card card-body ">
+                
+
+                <h1 class="text-center"> Editar Reservar</h1> 
+                {{error}}
+                {% csrf_token %}
+
+                
+                
+               
+                    {{form.as_table}}
+                
+
+                    
+                
+              
+                      <br>
+                      <input name="" id="editarReserva" class="btn btn-primary" type="submit" value="EDITAR RESERVA">
+            </form>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Servicio, Reserva, Vehiculo
+from .models import Servicio, Reserva, Vehiculo, Producto, Proveedor, Boleta
 
 
 
@@ -7,5 +7,7 @@ from .models import Servicio, Reserva, Vehiculo
 admin.site.register(Servicio)
 admin.site.register(Reserva)
 admin.site.register(Vehiculo)
-#admin.site.register()
+admin.site.register(Boleta)
+admin.site.register(Proveedor)
+admin.site.register(Producto)
 

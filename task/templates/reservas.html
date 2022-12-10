@@ -4,27 +4,32 @@
 {% load static %}
 
 <h1 style="text-align: center;">Lista Reservas</h1>
+
+
+
 {% for reserva in reservas %}
-<div class="container-md">
+
+  <div class="container-md">
     <div class="row">
 <div class="card" >
     <div class="card-body">
       <h5 class="card-title"><strong>SERVICIO RESERVADO:</strong>&nbsp;{{reserva.servicio}}</h5>
-      <p>{{reserva.fecha}}</p>
+      <p><strong>FECHA CITA:</strong>&nbsp; {{reserva.reserva}}</p>
       <p class="card-text"><strong>USUARIO/CLIENTE:</strong> {{reserva.user.username}}</p>
       <p class="card-text"><strong>VEHÍCULO: </strong><br><strong>MARCA: </strong>{{reserva.vehiculo}}&nbsp;-&nbsp;<strong>MODELO: </strong>{{reserva.vehiculo.modelo}} &nbsp;-&nbsp;<strong>AÑO: </strong>{{reserva.vehiculo.anno}}</p>
       
       <p class="card-text"><strong>DESCRIPCIÓN:</strong><br> {{reserva.descripcion}}</p>
+      <p class="card-text"><strong>FECHA ATENDIDO:</strong><br> {{reserva.atendido|date:'M j Y:i'}}</p>
       
-      <a href="#" class="btn btn-primary">Detalle</a>
+      <a href="{% url 'detalleReserva' reserva.id %}" class="btn btn-primary">Detalle</a>
     </div>
   </div>
 </div>
 
 </div>
+
 <br>
 {% endfor %}
-
 
 
 

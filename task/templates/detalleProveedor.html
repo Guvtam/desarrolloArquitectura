@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<h1 class="text-center">Detalle Proveedor</h1>
+
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+            <form method="POST" class="card card-body ">
+                {% csrf_token %}
+                {{form.as_p}}
+            
+                <input name="" id="editar" class="btn btn-primary" type="submit" value="EDITAR">
+            </form>
+            <form action="{% url 'eliminarProveedor' proveedor.id %}" method="POST" class="card card-body ">
+                {% csrf_token %}
+                <input name="" class="btn btn-danger" type="submit" value="ELIMINAR">
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+
+{% endblock %}

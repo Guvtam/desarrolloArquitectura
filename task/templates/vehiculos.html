@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% load static %}
+<br>
+<main class="container">
+    <div class="row">
+        <div class="col-md-8s ">
+<h1 class="text-center">Lista Vehículos</h1>
+
+<div class="card">
+    
+    <div class="card-body">
+        <h4 class="card-title">Vehículos</h4>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>MARCA</th>
+                    <th>MODELO</th>
+                    <th>AÑO</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for vehiculo in vehiculo %}
+                <tr>
+                    <td>{{ vehiculo.id }}</td>
+                    <td>
+                        
+                        {{ vehiculo.marca}}
+                    </td>
+                    <td>{{ vehiculo.modelo }}</td>
+                    <td>{{ vehiculo.anno}}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}
