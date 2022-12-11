@@ -38,13 +38,19 @@
               {% endif %}
               {% if user.is_authenticated %}
 
-              
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'reservas' %}">Agenda</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Agenda
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'reservasPorRealizar' %}">Atenciones Pendientes</a></li>
+                  <li><a class="dropdown-item" href="{% url 'reservas' %}">Todas Las Reservas</a></li>
+                  <li><a class="dropdown-item" href="{% url 'reservasRealizadas' %}">Historial Atendidos</a></li>
+                  
+                  
+                </ul>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'reservasRealizadas' %}">Historial Atendidos</a>
-              </li>
+
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'listProveedor' %}">Proveedores</a>
               </li>

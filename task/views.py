@@ -350,7 +350,7 @@ def reservasRealizadas(request):
 
 @login_required
 def reservasPorRealizar(request):
-    reservas = Reserva.objects.filter(atendido__isnull=False)
+    reservas = Reserva.objects.filter(atendido__isnull=True)
     return render(request, 'reservas.html',{
         'reservas' : reservas
     })
