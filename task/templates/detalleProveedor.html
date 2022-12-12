@@ -11,13 +11,16 @@
             <form method="POST" class="card card-body ">
                 {% csrf_token %}
                 {{form.as_p}}
-            
+                {% if perms.task.change_proveedor %}
                 <input name="" id="editar" class="btn btn-primary" type="submit" value="EDITAR">
+                {% endif %}
             </form>
+            {% if perms.task.delete_proveedor %}
             <form action="{% url 'eliminarProveedor' proveedor.id %}" method="POST" class="card card-body ">
                 {% csrf_token %}
                 <input name="" class="btn btn-danger" type="submit" value="ELIMINAR">
             </form>
+            {% endif%}
         </div>
     </div>
 </main>

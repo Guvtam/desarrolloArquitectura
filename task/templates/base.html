@@ -29,15 +29,17 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{% url 'contacto' %}">Contacto</a>
               </li>
-              {% if user.is_authenticated  %}
-
+              
+              
               
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'crearReserva' %}">Reservar</a>
               </li>
-              {% endif %}
-              {% if user.is_authenticated %}
+              
+              
+              
 
+              {% if perms.task.view_reserva %}
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Agenda
@@ -50,28 +52,42 @@
                   
                 </ul>
               </li>
-
+              {% endif %}
+              {% if perms.task.view_proveedor %}
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'listProveedor' %}">Proveedores</a>
               </li>
+              {% endif %}
+              {% if perms.task.view_producto %}
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'listProductos' %}">Productos</a>
               </li>
+              {% endif %}
+              {% if perms.task.view_vehiculo %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'listVehiculos' %}">Vehículos</a>
+              </li>
+              {% endif %}
+              {% if perms.task.view_boleta %}
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'listBoletas' %}">Boletas</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'cerrarSesion' %}">Logout</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">{{ user.username }}</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
+              {% endif %}
+              
+              {% if user.is_authenticated %}
+              
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">{{ user.username }}</a>
+                </li>
+                <li class="nav-item">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'cerrarSesion' %}">Logout</a>
+                  </li>
+                {% else %}
                 <a class="nav-link active" href="{% url 'iniciarSesion' %}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="{% url 'registrarse' %}">Registrate</a>
+                <a class="nav-link active" href="{% url 'registrarse' %}">Registrarse</a>
               </li>
               {% endif %}
             </ul>

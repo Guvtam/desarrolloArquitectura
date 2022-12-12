@@ -11,14 +11,16 @@
             <form method="POST" class="card card-body ">
                 {% csrf_token %}
                 {{form.as_p}}
-            
+                {% if perms.task.change_reserva %}
                 <input name="" id="editar" class="btn btn-primary" type="submit" value="EDITAR">
+                
             </form>
-
+            
             <form action="{% url 'reservaCompletada' reserva.id %}" method="POST" class="card card-body ">
                 {% csrf_token %}
                 <input name="" id="atendido" class="btn btn-success" type="submit" value="ATENDIDO">
             </form>
+            {% endif %}
         </div>
     </div>
 </main>

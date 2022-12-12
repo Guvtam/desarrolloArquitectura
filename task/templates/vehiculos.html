@@ -9,6 +9,11 @@
 <h1 class="text-center">Lista Vehículos</h1>
 
 <div class="card">
+    {% if perms.task.add_vehiculo %}
+                <div class="card-header">
+                    <a name="" id="" class="btn btn-success" href="{% url 'crearVehiculo' %}" role="button">Agregar Vehículo</a>
+                 </div>
+                 {% endif%}
     
     <div class="card-body">
         <h4 class="card-title">Vehículos</h4>
