@@ -31,12 +31,12 @@
               </li>
               
               
-              
+              {% if user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link active" href="{% url 'crearReserva' %}">Reservar</a>
               </li>
               
-              
+              {% endif %}
               
 
               {% if perms.task.view_reserva %}
